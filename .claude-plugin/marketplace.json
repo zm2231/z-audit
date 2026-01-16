@@ -11,7 +11,10 @@
   "plugins": [
     {
       "name": "z-audit",
-      "source": ".",
+      "source": {
+        "source": "github",
+        "repo": "zm2231/z-audit"
+      },
       "description": "Security auditing for vibe-coded apps. Auto-detects stack (Vercel, Supabase, Cloudflare Workers, Firebase) and runs targeted vulnerability checks including secrets scanning, API auth testing, and platform-specific misconfigurations.",
       "version": "1.0.0",
       "author": {
