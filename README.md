@@ -8,7 +8,7 @@
 
 ## Why Z-Audit?
 
-2026 is the year of vibe-coding. Cursor, Claude, Copilot - everyone's shipping faster than ever. But speed often means security gets overlooked.
+2026 is the year of vibe-coding. Cursor, Claude, Lovable, Codex - everyone's shipping faster than ever. But speed often means security gets overlooked.
 
 Z-Audit was born from a real security audit where we found:
 - Hardcoded passwords in frontend JavaScript
