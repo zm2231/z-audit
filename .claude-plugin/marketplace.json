@@ -1,0 +1,25 @@
+{
+  "name": "z-audit-marketplace",
+  "owner": {
+    "name": "zm2231",
+    "email": "zain@example.com"
+  },
+  "metadata": {
+    "description": "Security auditing tools for vibe-coded applications",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "z-audit",
+      "source": ".",
+      "description": "Security auditing for vibe-coded apps. Auto-detects stack (Vercel, Supabase, Cloudflare Workers, Firebase) and runs targeted vulnerability checks including secrets scanning, API auth testing, and platform-specific misconfigurations.",
+      "version": "1.0.0",
+      "author": {
+        "name": "zm2231"
+      },
+      "homepage": "https://github.com/zm2231/z-audit",
+      "category": "security",
+      "tags": ["security", "audit", "vibe-coding", "vercel", "supabase", "cloudflare", "firebase"]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Z-Audit Installer
-# Installs the Z-Audit skill, command, and subagent for Claude Code
+# Installs the Z-Audit plugin for Claude Code
 
 set -e
 
@@ -17,15 +17,15 @@ mkdir -p "$CLAUDE_DIR/commands"
 mkdir -p "$CLAUDE_DIR/agents"
 
 # Copy skill
-cp "$SCRIPT_DIR/skill/skill.md" "$CLAUDE_DIR/skills/z-audit/"
+cp "$SCRIPT_DIR/skills/z-audit/skill.md" "$CLAUDE_DIR/skills/z-audit/"
 echo "Skill installed to $CLAUDE_DIR/skills/z-audit/"
 
 # Copy command
-cp "$SCRIPT_DIR/command/z-audit.md" "$CLAUDE_DIR/commands/"
+cp "$SCRIPT_DIR/commands/z-audit.md" "$CLAUDE_DIR/commands/"
 echo "Command installed to $CLAUDE_DIR/commands/"
 
 # Copy subagent
-cp "$SCRIPT_DIR/agent/z-audit-subagent.md" "$CLAUDE_DIR/agents/"
+cp "$SCRIPT_DIR/agents/z-audit.md" "$CLAUDE_DIR/agents/"
 echo "Subagent installed to $CLAUDE_DIR/agents/"
 
 echo ""
@@ -36,4 +36,6 @@ echo "  /z-audit https://your-site.com https://your-api.com"
 echo "  /z-audit ./your-local-project"
 echo "  /z-audit local"
 echo ""
-echo "Or ask Claude to use z-audit automatically."
+echo "Or install via marketplace:"
+echo "  /plugin marketplace add zm2231/z-audit"
+echo "  /plugin install z-audit@z-audit-marketplace"

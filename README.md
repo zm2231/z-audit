@@ -8,7 +8,7 @@
 
 ## Why Z-Audit?
 
-2026 is the year of vibe-coding. Cursor, Claude, Copilot—everyone's shipping faster than ever. But speed often means security gets overlooked.
+2026 is the year of vibe-coding. Cursor, Claude, Copilot - everyone's shipping faster than ever. But speed often means security gets overlooked.
 
 Z-Audit was born from a real security audit where we found:
 - Hardcoded passwords in frontend JavaScript
@@ -25,8 +25,15 @@ Z-Audit was born from a real security audit where we found:
 
 ### Installation
 
+**Option 1: Plugin Marketplace (Recommended)**
 ```bash
-# Clone and install
+# In Claude Code
+/plugin marketplace add zm2231/z-audit
+/plugin install z-audit@z-audit-marketplace
+```
+
+**Option 2: Manual Install**
+```bash
 git clone https://github.com/zm2231/z-audit.git
 cd z-audit
 ./install.sh
@@ -155,52 +162,55 @@ exposing all user data. Immediate action required.
 
 ```
 z-audit/
-├── README.md                  # This file
-├── install.sh                 # One-command installer
-├── skill/
-│   └── skill.md               # Main skill instructions
-├── command/
-│   └── z-audit.md             # Slash command definition
-├── agent/
-│   └── z-audit-subagent.md    # Claude Code subagent
-└── examples/
-    └── sample-report.md       # Example audit report
+├── .claude-plugin/
+│   ├── plugin.json            # Plugin manifest
+│   └── marketplace.json       # Marketplace catalog
+├── commands/
+│   └── z-audit.md             # Slash command
+├── agents/
+│   └── z-audit.md             # Subagent definition
+├── skills/
+│   └── z-audit/
+│       └── skill.md           # Full audit methodology
+├── examples/
+│   └── sample-report.md       # Example report
+├── install.sh                 # Manual installer
+└── README.md
 ```
 
 ---
 
-## Two Ways to Use Z-Audit
+## Three Ways to Use Z-Audit
 
 | Method | Best For |
 |--------|----------|
+| **Plugin Install** | Easiest, auto-updates |
 | **Slash Command** | Quick audits, interactive |
-| **Subagent** | Auto-delegation, parallel audits |
+| **Subagent** | Auto-delegation, background |
 
-### Option 1: Slash Command
-
-Use this when you want conversational audits with follow-up questions.
+### Option 1: Plugin (Recommended)
 
 ```bash
-# Install
-./install.sh
+/plugin marketplace add zm2231/z-audit
+/plugin install z-audit@z-audit-marketplace
+```
 
-# Run in Claude Code
+### Option 2: Slash Command
+
+```bash
 /z-audit https://myapp.vercel.app https://api.myapp.workers.dev
 ```
 
-### Option 2: Subagent
+When invoked, you'll be asked:
+- **Direct**: Run analysis in current conversation
+- **Subagent**: Spawn dedicated agent (runs in background)
 
-Install as a subagent that Claude can auto-delegate to:
+### Option 3: Auto-Delegation
 
-```bash
-# Copy to Claude Code agents directory
-cp agent/z-audit-subagent.md ~/.claude/agents/
-
-# Now Claude can use it automatically, or you can request it:
-# "Use z-audit to check https://myapp.vercel.app"
+Once installed, Claude can automatically delegate security audits to the z-audit subagent:
 ```
-
-**Pros:** Auto-delegation, can run in background while you work
+"Check if my app at https://myapp.vercel.app has security issues"
+```
 
 ---
 
@@ -208,7 +218,7 @@ cp agent/z-audit-subagent.md ~/.claude/agents/
 
 ### Adding New Secret Patterns
 
-Edit `skill/skill.md` and add patterns to Phase 1:
+Edit `skills/z-audit/skill.md` and add patterns to Phase 1:
 
 ```bash
 # Add your custom pattern
@@ -217,7 +227,7 @@ grep -oE 'mycompany_[a-zA-Z0-9]+' /tmp/bundle.js
 
 ### Adding New Stack Detection
 
-Add to Phase 0 in `skill/skill.md`:
+Add to Phase 0 in `skills/z-audit/skill.md`:
 
 ```bash
 # Detect your framework
@@ -226,7 +236,7 @@ cat package.json | grep -E '"my-framework"'
 
 ### Adding Infrastructure Checks
 
-Add a new section in Phase 4 of `skill/skill.md`.
+Add a new section in Phase 4 of `skills/z-audit/skill.md`.
 
 ---
 
@@ -250,7 +260,7 @@ Z-Audit is for **auditing your own projects** or projects you have permission to
 Found a common vulnerability pattern we're missing? PRs welcome!
 
 1. Fork the repo
-2. Add your checks to `skill/skill.md`
+2. Add your checks to `skills/z-audit/skill.md`
 3. Test on a sample project
 4. Submit PR with description
 

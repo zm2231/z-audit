@@ -1,0 +1,20 @@
+{
+  "name": "z-audit",
+  "description": "Security auditing for vibe-coded apps. Auto-detects stack (Vercel, Supabase, Cloudflare Workers, Firebase) and runs targeted vulnerability checks.",
+  "version": "1.0.0",
+  "author": {
+    "name": "zm2231"
+  },
+  "homepage": "https://github.com/zm2231/z-audit",
+  "repository": "https://github.com/zm2231/z-audit",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "audit",
+    "vibe-coding",
+    "vercel",
+    "supabase",
+    "cloudflare",
+    "firebase"
+  ]
+}

@@ -4,6 +4,7 @@ description: Security audit for vibe-coded apps (Vercel, Supabase, Cloudflare Wo
 tools: Bash, Read, Write, Glob, Grep
 model: sonnet
 color: red
+skills: z-audit
 ---
 
 # Z-Audit: Security Audit for Vibe-Coded Apps
