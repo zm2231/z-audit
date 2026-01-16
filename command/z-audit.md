@@ -12,7 +12,25 @@ User provided: $ARGUMENTS
 
 ---
 
-## Execution Flow
+## Step 0: Ask User About Execution Mode
+
+Before starting, ask the user:
+
+```
+How would you like to run the security audit?
+
+1. **Direct** - I'll run the analysis here in this conversation (interactive, can ask follow-ups)
+2. **Subagent** - Spawn a dedicated z-audit subagent (runs in background, returns full report)
+
+Which do you prefer? (1 or 2)
+```
+
+- If user chooses **1 (Direct)**: Continue with the execution flow below
+- If user chooses **2 (Subagent)**: Delegate to the z-audit subagent with the provided arguments and wait for results
+
+---
+
+## Execution Flow (Direct Mode)
 
 ### Step 1: Stack Detection (ALWAYS FIRST)
 Detect the tech stack before running checks:
